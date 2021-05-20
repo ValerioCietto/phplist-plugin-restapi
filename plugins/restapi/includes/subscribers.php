@@ -511,6 +511,25 @@ class Subscribers
             ." WHERE userid=:userid;",$params, false);
         die(0);
     }
+	
+    /** Get attributes to a subscriber
+     *
+     * <p><strong>Parameters:</strong><br/>
+     * [*userid] {integer} the ID of the Subscriber.<br/>
+     * </p>
+     * <p><strong>Returns:</strong><br/>
+     * Return all attributes of userid.
+     * </p>
+     */
+    public static function subscriberGetAttributes($userid=0) {
+        if($userid == 0){
+            $userid = $_REQUEST['userid'];
+        }
+
+        Common::select('Attribute', 'SELECT * FROM '.$GLOBALS['tables']['user_attribute']
+            ." WHERE userid=:userid;",$params, false);
+        die(0);
+    }
 
     /**
      * Get messages (campaigns) sent to a user or an email address (userid param is preferred)
